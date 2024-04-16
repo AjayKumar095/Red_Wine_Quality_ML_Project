@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+
+
+    <div class="divider"></div>
+    <div class="header">
+        <img src="static/icons8-wine-64.png" alt="Logo">
+        <h1>Red Blend</h1>
+    </div> 
+     <div class="divider"></div>
+  
+
+<div class="main">
+  <div class="text">
+    <h1 style=" color:#8B0000;">About Red Wine</h1>
+ 
+<p style="padding: 2px;">
+    Red wine has played a significant role in our cultural heritage for centuries,
+     piquing the interest of many with its rich complexities. Its bold flavors and intricate profiles make
+      it a perfect accompaniment for social gatherings, special occasions, and memorable meals. However, 
+      the art of crafting this esteemed beverage is equally fascinating, 
+    especially when delving into its vibrant history across various cultures.
+   
+   </p>
+
+   <p style="padding: 2px;">From the moment of harvest to the fermentation process,
+     let's delve into the time-honored tradition of producing red wine, from vineyard to bottle.
+      We'll explore each stage of production, encompassing both ancient winemaking techniques employed by early 
+      civilizations and the modern methods embraced by contemporary vintners. By examining both traditional 
+      practices and cutting-edge advancements in oenology—the science of winemaking—we can develop a deeper
+       appreciation for red wine while indulging in its timeless allure.
+</p>
+
+<h2 style=" color:#8B0000;">Red Wine History</h2>
+<p>The history of red wine is as rich as it is captivating. Its origins can be traced back 
+    to ancient civilizations such as the Greeks and Romans, who revered and refined the craft of winemaking.
+     While techniques have evolved over time, the fundamental process remains consistent: grape juice undergoes
+      fermentation to become wine. Red wine, specifically, is crafted from black grapes, where both the juice
+       and skins ferment together. This co-fermentation process imparts the wine with its characteristic deep
+        hue and intricate flavors. Given its diverse and storied past,
+     it's no surprise that red wine continues to be cherished and savored worldwide today.</p>
+
+     <h2 style=" color:#8B0000;">Red Wine Production</h2>
+     <p>Grapes are an essential ingredient in the production of red wine,
+         and the variety used plays a critical role in determining the wine’s flavor profile.
+          Different regions around the world are known for producing distinct types of grapes, adding 
+          unique flavors to the final product. For instance, the Cabernet Sauvignon grape is commonly found
+           in Bordeaux and California, and it lends a bold, full-bodied taste to the wine. In contrast,
+            the Pinot Noir grape, ubiquitous in Burgundy and Oregon, brings a lighter, more delicate flavor.
+             The terrain, climate, and soil on which the grapes are grown also influence the taste.
+              These regional variations highlight the beauty and complexity of red wine and make each bottle 
+              a one-of-a-kind experience.</p>
+
+
+  </div>
+   
+  <div class="form-container">
+    <h2 style=" color:#8B0000;">Enter Wine Features</h2>
+    <form action="#" method="post" id="form">
+        <label for="fixed_acidity">Fixed Acidity:</label>
+        <input type="number" step="0.01" id="fixed_acidity" name="fixed_acidity" required>
+
+        <label for="volatile_acidity">Volatile Acidity:</label>
+        <input type="number" step="0.01" id="volatile_acidity" name="volatile_acidity" required>
+
+        <label for="citric_acid">Citric Acid:</label>
+        <input type="number" step="0.01" id="citric_acid" name="citric_acid" required>
+
+        <label for="residual_sugar">Residual Sugar:</label>
+        <input type="number" step="0.01" id="residual_sugar" name="residual_sugar" required>
+
+        <label for="chlorides">Chlorides:</label>
+        <input type="number" step="0.01" id="chlorides" name="chlorides" required>
+
+        <label for="free_sulfur_dioxide">Free Sulfur Dioxide:</label>
+        <input type="number" step="0.01" id="free_sulfur_dioxide" name="free_sulfur_dioxide" required>
+
+        <label for="total_sulfur_dioxide">Total Sulfur Dioxide:</label>
+        <input type="number" step="0.01" id="total_sulfur_dioxide" name="total_sulfur_dioxide" required>
+
+        <label for="density">Density:</label>
+        <input type="number" step="0.0001" id="density" name="density" required>
+
+        <label for="pH">pH:</label>
+        <input type="number" step="0.01" id="pH" name="pH" required>
+
+        <label for="sulphates">Sulphates:</label>
+        <input type="number" step="0.01" id="sulphates" name="sulphates" required>
+
+        <label for="alcohol">Alcohol:</label>
+        <input type="number" step="0.01" id="alcohol" name="alcohol" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+    </div>
+
+
+    <div class="result" id="result">
+        <h2> Predicted Wine Quality:-   {{Quality}} out of 10.0</h2>
+     </div>
+
+    <div class="divider"></div>
+
+    <div class="info-section">
+      
+
+        <h2 style="text-align: center;">Input Features</h2>
+        <table>
+           <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Description</th>
+                <th>Units</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+                <td>Fixed Acidity</td>
+                <td>Fixed acidity denotes the presence of stable acids within wine that resist evaporation.</td>
+                <td>Acidity from non-volatile acids (g tartaric acid / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Volatile Acidity</td>
+                <td>Volatile acidity indicates the concentration of acetic acid in wine.</td>
+                <td>Acidity from volatile acids (g acetic acid / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Citric Acid</td>
+                <td>Citric acid is found in wine in small amounts and can impart a refreshing taste.</td>
+                <td>Amount of citric acid (g / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Residual Sugar</td>
+                <td>Residual sugar signifies the remaining sugar in wine following fermentation.</td>
+                <td>Amount of residual sugar (g / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Chlorides</td>
+                <td>Chlorides denote the level of salt present in wine.</td>
+                <td>Amount of chlorides (g sodium chloride / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Free Sulfur Dioxide</td>
+                <td>Free sulfur dioxide refers to SO2 existing in equilibrium between molecular form and bisulfite ion.</td>
+                <td>Amount of free sulfur dioxide (mg / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Total Sulfur Dioxide</td>
+                <td>Total sulfur dioxide measures the combined free and bound forms of SO2.</td>
+                <td>Amount of total sulfur dioxide (mg / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Density</td>
+                <td>Density describes the density of wine, which typically resembles that of water and varies based on alcohol and sugar content.</td>
+                <td>Density (g / cm^3)</td>
+            </tr>
+            <tr>
+                <td>pH</td>
+                <td>pH measures the acidity or alkalinity of wine on a scale from 0 (very acidic) to 14 (very basic).</td>
+                <td>pH level</td>
+            </tr>
+            <tr>
+                <td>Sulphates</td>
+                <td>Sulphates are additives in wine that contribute to sulfur dioxide gas levels, acting as antimicrobial agents.</td>
+                <td>Amount of sulphates (g potassium sulphate / dm^3)</td>
+            </tr>
+            <tr>
+                <td>Alcohol</td>
+                <td>Alcohol content indicates the percentage of alcohol present in the wine.</td>
+                <td>Alcohol content (% vol.)</td>
+            </tr>
+       
+           </tbody>
+    
+        </table>
+    </div>
+
+    <div class="footer">
+        <p style="text-align: center;"><b>Contact me</b></p>
+        <a class="footer_link" href="https://github.com/AjayKumar095/"><b>GitHub</b></a> |
+        <a class="footer_link" href="https://www.linkedin.com/in/jay-kumar-4b1b7329a/"><b>Linkedin</b></a> 
+         
+    </div>
+   
+<script>
+    document.getElementById("form").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        document.getElementById("result").style.display = "block"; 
+        
+    });
+    
+</script>
+
+</body>
+</html>
