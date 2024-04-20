@@ -31,9 +31,10 @@ def load_obj(file_path:str):
             logging.info(f"Having some error in load object, Error:- {e}")
         
 
-
-def evaluate_model(x_train, x_test, y_train, y_test, models:list):
-    pass
+    
+    
+    
+    
 
    
                 

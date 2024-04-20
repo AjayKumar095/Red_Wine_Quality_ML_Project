@@ -50,7 +50,5 @@ class IntakeData:
             logging.info(f"Having some error to save files, Error:- {e}")    
             
 
-res=IntakeData()
 
-print(res.load_data())     
                    

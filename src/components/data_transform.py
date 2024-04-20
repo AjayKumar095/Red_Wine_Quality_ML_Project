@@ -6,9 +6,7 @@ from dataclasses import dataclass
 from common.utility import save_obj
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-from imblearn.over_sampling import SMOTE
 from sklearn.compose import ColumnTransformer 
-
 
 @dataclass
 class ConfigDataTransform:
@@ -76,7 +74,7 @@ class DataTransforming:
             train_target=train_df[target_col]
             
             logging.info("Applying preprocessing object on training and test datasets")
-            test_input_data_arr=preprocessor_obj.fit_transform(test_input_data_df)
+            test_input_data_arr=preprocessor_obj.transform(test_input_data_df)
             train_input_data_arr=preprocessor_obj.fit_transform(train_input_data_df)
             logging.info("Data tansformation end.")
             
@@ -90,18 +88,10 @@ class DataTransforming:
             )
             
             return (
-                #train_arr,
-                #test_arr,
+                train_arr,
+                test_arr,
                 self.DataTransform_config.data_preprocessor_file_path 
             )
         
         except Exception as e:
             logging.info(f'Having some error in data transforming. Error:- {e}')
-            
-                
-check=DataTransforming()
-
-train='artifacts/Data/train.csv'
-test='artifacts/Data/test.csv'     
-
-print(check.start_data_transforming(train_path=train, test_path=test))
