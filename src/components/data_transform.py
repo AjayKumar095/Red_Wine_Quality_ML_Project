@@ -74,8 +74,8 @@ class DataTransforming:
             train_target=train_df[target_col]
             
             logging.info("Applying preprocessing object on training and test datasets")
-            test_input_data_arr=preprocessor_obj.fit_transform(test_input_data_df)
             train_input_data_arr=preprocessor_obj.fit_transform(train_input_data_df)
+            test_input_data_arr=preprocessor_obj.transform(test_input_data_df)
             logging.info("Data tansformation end.")
             
             test_arr=np.c_[test_input_data_arr, np.array(test_target)]
@@ -95,3 +95,13 @@ class DataTransforming:
         
         except Exception as e:
             logging.info(f'Having some error in data transforming. Error:- {e}')
+            
+            
+res=DataTransforming()
+            
+test='artifacts/Data/test.csv'  
+train='artifacts/Data/train.csv' 
+
+tain_arr, test_arr,_=res.start_data_transforming(train, test)
+print(tain_arr)
+print(test_arr)
