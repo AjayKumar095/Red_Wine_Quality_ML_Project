@@ -4,5 +4,4 @@ pickle
 scikit-learn
 setuptools
 joblib
-
 -e .
