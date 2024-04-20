@@ -23,7 +23,7 @@ def load_obj(file_path:str):
     
     try:
         
-        with open(file_path, 'rd') as file_obj:
+        with open(file_path, 'rb') as file_obj:
             logging.info(f"Reading from pickle file {file_path}")
             return pickle.load(file_obj)
         
