@@ -25,7 +25,7 @@ class IntakeData:
         try :
             
             logging.info('Reading raw data as pandas dataframe')
-            df=pd.read_csv('notebook/raw_data/winequality-red.csv')
+            df=pd.read_csv('notebook/raw_data/Raw_Data_Red_Wine.csv')
             
             ## spliting raw data into train and test data
             
@@ -49,6 +49,8 @@ class IntakeData:
         except Exception as e:
             logging.info(f"Having some error to save files, Error:- {e}")    
             
-                    
-            
+
+res=IntakeData()
+
+print(res.load_data())     
                    
