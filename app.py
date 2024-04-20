@@ -1,4 +1,5 @@
 from common.logger import logging
+import pickle
 from flask import Flask, render_template, request
 from src.pipeline.prediction_pipeline import PredictPipeline
 app=Flask(__name__)
@@ -16,7 +17,7 @@ def homepage():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     try:
-        if request.form=='GET':
+        if request.method=='GET':
            logging.info('in if block')
            return render_template('PageError.html', error=f'500 - Internal Server Error')
         else :
@@ -39,12 +40,17 @@ def predict():
             
             logging.info(f'valuse {str(values)}')
             
-            logging.info('calling pipeline')
-            model=PredictPipeline()
-            logging.info('predicting')
-            y_pred=model.Predict(values)
+            #logging.info('calling pipeline')
+           # model=PredictPipeline()
+            #logging.info('predicting')
+            #y_pred=model.Predict(values)
             
-            logging.info(f'quality rank app.py = {y_pred}')
+            #logging.info(f'quality rank app.py = {y_pred}')
+            
+            with open('artifacts/model/Red_Wine_ML_Model.pkl', 'rb')as file:
+                model=pickle.load(file)
+                
+            y_pred=model.predict(values)
             quality_rank=str(y_pred)
             
         
