@@ -9,7 +9,7 @@ class PredictPipeline:
     def __init__(self):
         pass
 
-    def predict(self,features):
+    def Predict(self,features):
         try:
             #preprocessor_path=os.path.join('artifacts', 'model', 'preprocessor.pkl')
             model_path=os.path.join('artifacts','model', 'Red_Wine_ML_Model.pkl')

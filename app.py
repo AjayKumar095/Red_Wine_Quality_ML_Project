@@ -7,6 +7,7 @@ app=Flask(__name__)
 @app.route('/', methods=['GET', "POST"])
 def homepage():
     try :
+        logging.info("at home page")
         return render_template('index.html')
     except:
         return render_template('PageError.html', error=f'500 - Internal Server Error')
@@ -16,8 +17,11 @@ def homepage():
 def predict():
     try:
         if request.form=='GET':
+           logging.info('in if block')
            return render_template('PageError.html', error=f'500 - Internal Server Error')
         else :
+            
+            logging.info('in else block')
             fixed_acidity=request.form.get('fixed_acidity')
             volatile_acidity=request.form.get("volatile_acidity")
             citric_acid=request.form.get('citric_acid')
@@ -29,13 +33,18 @@ def predict():
             pH=request.form.get('pH')
             sulphates=request.form.get('sulphates')
             alcohol=request.form.get('alcohol')
-        
+            
             values=[[fixed_acidity, volatile_acidity, citric_acid, residualsugar, chlorides, free_sulfur_dioxide, 
                     total_sulfur_dioxide, density, pH, sulphates, alcohol]]
             
-            model=PredictPipeline()
-            y_pred=model.predict(values)
+            logging.info(f'valuse {str(values)}')
             
+            logging.info('calling pipeline')
+            model=PredictPipeline()
+            logging.info('predicting')
+            y_pred=model.Predict(values)
+            
+            logging.info(f'quality rank app.py = {y_pred}')
             quality_rank=str(y_pred)
             
         
