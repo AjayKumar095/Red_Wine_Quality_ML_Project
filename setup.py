@@ -15,7 +15,7 @@ def get_requirements(file_path:str)->List[str]:
 
 setup(
     name='RedWineQuality',
-    version='0.0.3',
+    version='0.0.4',
     author="Ajay",
     author_email="jaykumar002kori@gmail.com",
     packages=find_packages(),

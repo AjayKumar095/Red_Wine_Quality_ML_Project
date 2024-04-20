@@ -74,7 +74,7 @@ class DataTransforming:
             train_target=train_df[target_col]
             
             logging.info("Applying preprocessing object on training and test datasets")
-            test_input_data_arr=preprocessor_obj.transform(test_input_data_df)
+            test_input_data_arr=preprocessor_obj.fit_transform(test_input_data_df)
             train_input_data_arr=preprocessor_obj.fit_transform(train_input_data_df)
             logging.info("Data tansformation end.")
             
