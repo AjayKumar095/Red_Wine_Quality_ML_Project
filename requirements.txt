@@ -1,7 +1,6 @@
 pandas
 flask
-pickle
 scikit-learn
 setuptools
 joblib
--e .
+-e.
