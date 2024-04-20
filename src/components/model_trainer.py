@@ -34,7 +34,7 @@ class ModelTraining:
                                          n_estimators=400,
                                          oob_score=True
                                          )             
-           
+            
             
             model.fit(X_train, y_train)
             

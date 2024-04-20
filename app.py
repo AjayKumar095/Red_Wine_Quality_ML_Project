@@ -1,5 +1,6 @@
+from common.logger import logging
 from flask import Flask, render_template, request
-
+from src.pipeline.prediction_pipeline import PredictPipeline, CustomData
 app=Flask(__name__)
 
 
@@ -17,25 +18,30 @@ def predict():
         if request.form=='GET':
            return render_template('PageError.html', error=f'500 - Internal Server Error')
         else :
-            fixed_acidity=request.form.get('fixed_acidity')
-            volatile_acidity=request.form.get("volatile_acidity")
-            citric_acid=request.form.get('citric_acid')
-            residualsugar=request.form.get('residual_sugar')
-            chlorides=request.form.get('chlorides')
-            free_sulfur_dioxide=request.form.get('free_sulfur_dioxide')
-            total_sulfur_dioxide=request.form.get('total_sulfur_dioxide')
-            density=request.form.get('density')
-            pH=request.form.get('pH')
-            sulphates=request.form.get('sulphates')
+            
+            
+            data=CustomData(
+            fixed_acidity=request.form.get('fixed_acidity'),
+            volatile_acidity=request.form.get("volatile_acidity"),
+            citric_acid=request.form.get('citric_acid'),
+            residualsugar=request.form.get('residual_sugar'),
+            chlorides=request.form.get('chlorides'),
+            free_sulfur_dioxide=request.form.get('free_sulfur_dioxide'),
+            total_sulfur_dioxide=request.form.get('total_sulfur_dioxide'),
+            density=request.form.get('density'),
+            pH=request.form.get('pH'),
+            sulphates=request.form.get('sulphates'),
             alcohol=request.form.get('alcohol')
+            )
+            #values=[[fixed_acidity, volatile_acidity, citric_acid, residualsugar, chlorides, free_sulfur_dioxide, 
+                    #total_sulfur_dioxide, density, pH, sulphates, alcohol]]
         
-            values=[[fixed_acidity, volatile_acidity, citric_acid, residualsugar, chlorides, free_sulfur_dioxide, 
-                    total_sulfur_dioxide, density, pH, sulphates, alcohol]]
         
+            new_df=data.get_data_as_dataframe()
+            predict_pipeline=PredictPipeline()
+            prediction=predict_pipeline.predict(new_df)
         
-            model=load_mode()
-        
-            prediction=model.predict(values)
+            
         
             quality_rank=str(prediction)
         
