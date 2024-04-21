@@ -19,6 +19,14 @@ git clone https://github.com/AjayKumar095/Red_Wine_Quality_ML_Project
 
 3. **Explore the Data**: Use Jupyter Notebook or any other preferred tool to explore the dataset and run analysis scripts.
 
+## Tools and Software required
+1. **VS Code IDE**: Download the IDE from https://code.visualstudio.com/download
+
+2. **GitHub Account**: Create a GitHub account on github: https://github.com/
+
+3. **Heroku Account**: To deployment this project, create a free account on Heroku: https://signup.heroku.com/
+
+
 ## Conclusion
 The Red Wine Dataset offers valuable insights into the relationship between wine composition and quality. By leveraging predictive modeling and data analysis techniques, researchers and practitioners can unlock actionable insights to enhance wine production processes and deliver exceptional products to consumers.
 
