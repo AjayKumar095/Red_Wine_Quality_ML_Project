@@ -3,7 +3,7 @@ A machine learning project aimed at assessing red wine quality utilizes a robust
 Ultimately, the project aims to provide winemakers and enthusiasts with a reliable tool for assessing red wine quality.
 
 ## Project link
-This project is deployed on Onrender cloud plateform with (free instance version).
+This project is deployed on render cloud plateform with (free instance version).
 
 RedBlend :- https://redblend.onrender.com/
 
@@ -29,7 +29,7 @@ git clone https://github.com/AjayKumar095/Red_Wine_Quality_ML_Project
 
 2. **GitHub Account**: Create a GitHub account on github: https://github.com/
 
-3. **Heroku Account**: To deployment this project, create a free account on Heroku: https://signup.heroku.com/
+3. **Render Account**: To deployment this project, create a free account on Render: https://render.com/
 
 
 ## Conclusion
