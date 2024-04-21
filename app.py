@@ -51,6 +51,7 @@ def predict():
                 model=pickle.load(file)
                 
             y_pred=model.predict(values)
+            logging.info(f'predicted qulaity: {y_pred}')
             quality_rank=str(y_pred)
             
         
