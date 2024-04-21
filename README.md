@@ -1,6 +1,11 @@
 # Red_Wine_Quality_ML_Project
-A machine learning project aimed at assessing red wine quality utilizes a robust CI/CD pipeline for seamless development and deployment. This project employs advanced algorithms to analyze various chemical properties and sensory attributes to predict wine quality accurately. 
+A machine learning project aimed at assessing red wine quality utilizes a robust CI/CD pipeline for seamless development. This project employs advanced algorithms to analyze various chemical properties and sensory attributes to predict wine quality accurately. 
 Ultimately, the project aims to provide winemakers and enthusiasts with a reliable tool for assessing red wine quality.
+
+## Project link
+This project is deployed on Onrender cloud plateform with (free instance version).
+
+RedBlend :- https://redblend.onrender.com/
 
 ## Understanding the Dataset
 The dataset includes attributes such as acidity levels, sugar content, pH, alcohol percentage, and more, offering insights into the composition of red wines. Each sample is associated with a quality rating, allowing for the assessment of overall wine quality.
