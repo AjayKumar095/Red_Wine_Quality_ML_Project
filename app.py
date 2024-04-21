@@ -47,7 +47,7 @@ def predict():
             
             logging.info(f'quality rank app.py = {y_pred}')
             
-            quality_rank=float(y_pred)
+            quality_rank=int(y_pred)
             logging.info(f"quality rank {quality_rank}")
             
         
