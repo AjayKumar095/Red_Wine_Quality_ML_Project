@@ -40,19 +40,15 @@ def predict():
             
             logging.info(f'valuse {str(values)}')
             
-            #logging.info('calling pipeline')
-           # model=PredictPipeline()
-            #logging.info('predicting')
-            #y_pred=model.Predict(values)
+            logging.info('calling pipeline')
+            model=PredictPipeline()
+            logging.info('predicting')
+            y_pred=model.Predict(values)
             
-            #logging.info(f'quality rank app.py = {y_pred}')
+            logging.info(f'quality rank app.py = {y_pred}')
             
-            with open('artifacts/model/Red_Wine_ML_Model.pkl', 'rb')as file:
-                model=pickle.load(file)
-                
-            y_pred=model.predict(values)
-            logging.info(f'predicted qulaity: {y_pred}')
-            quality_rank=str(y_pred)
+            quality_rank=float(y_pred)
+            logging.info(f"quality rank {quality_rank}")
             
         
             return render_template('index.html', Quailty=quality_rank)
